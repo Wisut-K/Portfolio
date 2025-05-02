@@ -4,7 +4,7 @@ import datetime
 import os
 import pandas as pd
 import plotly.graph_objects as go
-from lightweight_charts import Chart
+# from lightweight_charts import Chart
 import json
 
 # import lightweight-charts
