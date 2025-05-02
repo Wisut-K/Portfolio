@@ -55,7 +55,7 @@ if st.button("Update", type="primary"):
             st.success("Completed",icon="✅")
 
 
-
+st.write('Stock list')
 if option_market == "SP 500":
     df_symbols = pd.read_csv('Datasets/Symbol/symbols_sp500.csv', header=None).rename(columns={0: 'Symbol'})
     st.write(df_symbols)
