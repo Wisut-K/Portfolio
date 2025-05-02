@@ -4,8 +4,11 @@ import datetime
 import os
 import pandas as pd
 import plotly.graph_objects as go
+pd.options.plotting.backend = 'plotly'
+import plotly.express as px
 # from lightweight_charts import Chart
-import json
+# import json
+
 
 # import lightweight-charts
 
@@ -85,15 +88,27 @@ df_chart['low']  = df_OHCL['Low']
 df_chart['close'] = df_OHCL['Close']
 df_chart['volume'] = df_OHCL['Volume']
 
+st.write(df_chart['close'].plot.line())
 st.write(df_chart)
 
-if st.button("Display", type="primary"):
-    candlestick = go.Candlestick(x=df_OHCL['Date'],open=df_OHCL['Open'],high=df_OHCL['High'],low=df_OHCL['Low'],close=df_OHCL['Close'])
-    fig = go.Figure(data=[candlestick])
-    fig.show()
 
-# if st.button("Display Chart", type="primary"):
 
+# if st.button("Display", type="primary"):
+#     candlestick = go.Candlestick(x=df_OHCL['Date'],open=df_OHCL['Open'],high=df_OHCL['High'],low=df_OHCL['Low'],close=df_OHCL['Close'])
+#     fig = go.Figure(data=[candlestick])
+#     fig.show()
+
+# # if st.button("Display Chart", type="primary"):
+# app = Dash()
+
+# # App layout
+# app.layout = [
+#     html.Div(children='My First App with Data, Graph, and Controls'),
+#     html.Hr(),
+#     dcc.RadioItems(options=['pop', 'lifeExp', 'gdpPercap'], value='lifeExp', id='my-final-radio-item-example'),
+#     dash_table.DataTable(data=df_chart['close'].to_dict('records'), page_size=6),
+#     dcc.Graph(figure={}, id='my-final-graph-example')
+# ]
 
 
 # chart = Chart()
