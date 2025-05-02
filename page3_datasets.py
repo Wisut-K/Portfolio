@@ -34,7 +34,7 @@ if st.button("Update", type="primary"):
             for symbol in lines:
                 ticker = yf.Ticker(symbol)
                 data = ticker.history(interval='1d', start=start_date, end=end_date)
-                data.to_csv("datasets/SP500/{}.csv".format(symbol))
+                data.to_csv("Datasets/SP500/{}.csv".format(symbol))
                 print(symbol)
                 print(data)
             st.success("Completed", icon="✅")
@@ -46,7 +46,7 @@ if st.button("Update", type="primary"):
                 print(symbol)
                 ticker = yf.Ticker(symbol + ".BK")
                 data = ticker.history(interval='1d', start=start_date, end=end_date)
-                data.to_csv("datasets/SET50/{}.csv".format(symbol))
+                data.to_csv("Datasets/SET50/{}.csv".format(symbol))
                 print(symbol)
                 print(data)
             st.success("Completed",icon="✅")
@@ -77,13 +77,6 @@ if option_market == "SET 50":
     df_OHCL = pd.read_csv('Datasets/SET50/{}.csv'.format(symbol))
     # st.write(df_OHCL)
 
-# if st.button("Display", type="primary"):
-#     candlestick = go.Candlestick(x=df_OHCL['Date'],open=df_OHCL['Open'],high=df_OHCL['High'],low=df_OHCL['Low'],close=df_OHCL['Close'])
-#     fig = go.Figure(data=[candlestick])
-#     fig.show()
-
-# if st.button("Display Chart", type="primary"):
-
 df_chart = pd.DataFrame()
 df_chart['time'] = df_OHCL['Date']  #.dt.strftime('%Y-%m-%d')
 df_chart['open'] = df_OHCL['Open']
@@ -92,6 +85,15 @@ df_chart['low']  = df_OHCL['Low']
 df_chart['close'] = df_OHCL['Close']
 df_chart['volume'] = df_OHCL['Volume']
 st.write(df_chart)
+
+# if st.button("Display", type="primary"):
+#     candlestick = go.Candlestick(x=df_OHCL['Date'],open=df_OHCL['Open'],high=df_OHCL['High'],low=df_OHCL['Low'],close=df_OHCL['Close'])
+#     fig = go.Figure(data=[candlestick])
+#     fig.show()
+
+# if st.button("Display Chart", type="primary"):
+
+
 
 # chart = Chart()
 # chart.set(df_chart)
