@@ -28,7 +28,8 @@ with col_A:
         start_date = st.date_input("Start Date", datetime.date(2024, 1, 1))
 
     with col3:
-        end_date = st.date_input("End Date", datetime.date(2025, 4, 25))
+        yesterday = datetime.date.today() - datetime.timedelta(days=1)
+        end_date = st.date_input("End Date", yesterday)
 
 
     st.markdown('#### Stock list')
@@ -89,6 +90,8 @@ with col_B:
     df_chart['low']  = df_OHCL['Low']
     df_chart['close'] = df_OHCL['Close']
     df_chart['volume'] = df_OHCL['Volume']
+    df_chart = df_chart.set_index('time')
 
     st.markdown('#### Price chart')
+
     st.write(df_chart['close'].plot.line())
