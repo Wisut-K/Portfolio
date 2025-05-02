@@ -88,7 +88,7 @@ df_chart['low']  = df_OHCL['Low']
 df_chart['close'] = df_OHCL['Close']
 df_chart['volume'] = df_OHCL['Volume']
 
-st.write(df_chart['close'].plot.line())
+# st.write(df_chart['close'].plot.line())
 st.write(df_chart)
 
 
