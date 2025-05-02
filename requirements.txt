@@ -1,6 +1,7 @@
 streamlit
 pandas
 plotly
+dash
 requests
 tweepy
 numpy

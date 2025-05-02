@@ -84,12 +84,13 @@ df_chart['high'] = df_OHCL['High']
 df_chart['low']  = df_OHCL['Low']
 df_chart['close'] = df_OHCL['Close']
 df_chart['volume'] = df_OHCL['Volume']
+
 st.write(df_chart)
 
-# if st.button("Display", type="primary"):
-#     candlestick = go.Candlestick(x=df_OHCL['Date'],open=df_OHCL['Open'],high=df_OHCL['High'],low=df_OHCL['Low'],close=df_OHCL['Close'])
-#     fig = go.Figure(data=[candlestick])
-#     fig.show()
+if st.button("Display", type="primary"):
+    candlestick = go.Candlestick(x=df_OHCL['Date'],open=df_OHCL['Open'],high=df_OHCL['High'],low=df_OHCL['Low'],close=df_OHCL['Close'])
+    fig = go.Figure(data=[candlestick])
+    fig.show()
 
 # if st.button("Display Chart", type="primary"):
 
